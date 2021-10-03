@@ -1,0 +1,18 @@
+// day1 : 2>> https://leetcode.com/problems/first-bad-version/
+
+    int firstBadVersion(int n) {
+        int l = 1;
+        int h = n;
+        int badVersion = 0;
+        while(l<=h){
+            int bad = l + (h-l)/2;
+            if(isBadVersion(bad)){
+                badVersion = bad;
+                h = bad-1;
+            }
+            else{
+                l = bad+1;
+            }
+        }
+        return badVersion;
+    }
